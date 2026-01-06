@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popn - The All-in-One Web3 Everything App</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            corePlugins: {
+                preflight: false,
+            },
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            mint: '#4ade80',
+                            teal: '#2dd4bf',
+                            light: '#f0fdfa',
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-gradient': 'linear-gradient(135deg, #f0fdfa 0%, #ffffff 100%)',
+                        'btn-gradient': 'linear-gradient(90deg, #2dd4bf 0%, #34d399 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="public/logo.png" alt="Popn Logo" class="logo-image">
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#testimonials">Testimonial</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <a href="#about">About</a>
+            </div>
+            <button class="nav-contact-btn">Contact</button>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Slider Styles -->
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
+        }
+
+        .floating-img {
+            animation: float-banner 6s ease-in-out infinite;
+        }
+
+        @keyframes float-banner {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .hero-slider-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: clamp(800px, 100vh, 1200px);
+        }
+
+        .hero-slides {
+            display: flex;
+            width: 200%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hero-slide {
+            width: 50%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-slide .hero {
+            min-height: 100%;
+            height: 100%;
+            width: 100%;
+            padding-top: 100px;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 50;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1b0c25;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .slider-nav:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-nav.prev {
+            left: 20px;
+        }
+
+        .slider-nav.next {
+            right: 20px;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 50;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #2dd4bf;
+            width: 30px;
+            border-radius: 10px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hero-slider-container {
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .slider-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+                display: none;
+            }
+
+            .hero-slide .hero {
+                padding-top: 80px;
+            }
+        }
+    </style>
+
+    <!-- Hero Slider Section -->
+    <div class="hero-slider-container">
+        <div class="hero-slides" id="heroSlides">
+
+            <!-- Slide 1: Original Hero -->
+            <div class="hero-slide">
+                <section class="hero" id="hero">
+                    <div class="hero-bg">
+                        <div class="sky-gradient"></div>
+                        <div class="floating-elements">
+                            <div class="crypto-icon crypto-icon-1">₿</div>
+                            <div class="crypto-icon crypto-icon-2">Ξ</div>
+                            <div class="crypto-icon crypto-icon-3">◉</div>
+                            <div class="crypto-icon crypto-icon-4">⬢</div>
+                            <div class="crypto-icon crypto-icon-5">◈</div>
+                            <div class="crypto-icon crypto-icon-6">⭘</div>
+                        </div>
+                        <div class="gradient-circles">
+                            <div class="circle circle-1"></div>
+                            <div class="circle circle-2"></div>
+                            <div class="circle circle-3"></div>
+                        </div>
+                    </div>
+
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <span>Be a pro, not a noob</span>
+                        </div>
+                        <h1 class="hero-title">
+                            The All-in-One<br>
+                            <span class="text-gradient">Web3 Everything App</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Built on top of <em>OpenLedger</em>, Popn is your ultimate gateway to Web3 insights.
+                        </p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary">Chat Now</button>
+                            <button class="btn btn-secondary">Know More</button>
+                        </div>
+                    </div>
+
+                    <div class="hero-dashboard">
+                        <div class="dashboard-preview">
+                            <div class="dashboard-blur"></div>
+                            <div class="dashboard-content"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Slide 2: Prediction Market Banner -->
+            <div class="hero-slide bg-slate-50">
+                <section class="max-w-7xl mx-auto w-full relative p-4 flex items-center justify-center">
+                    <div
+                        class="relative overflow-hidden rounded-[2.5rem] glass-card p-8 md:p-12 lg:p-16 border border-white/60 shadow-xl bg-gradient-to-br from-white via-teal-50/50 to-white w-full">
+
+
+                        <div
+                            class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-teal-200/20 rounded-full blur-3xl pointer-events-none">
+                        </div>
+                        <div
+                            class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-emerald-200/20 rounded-full blur-3xl pointer-events-none">
+                        </div>
+
+                        <div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+
+                            <div class="relative order-1 lg:order-1 flex justify-center">
+                                <div
+                                    class="relative w-full max-w-md aspect-square lg:aspect-[4/3] flex items-center justify-center">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-tr from-teal-100/30 to-transparent rounded-3xl transform rotate-3 scale-95 opacity-50">
+                                    </div>
+                                    <img src="./prediction-banner.png" alt="Prediction Market Yes No"
+                                        class="relative z-10 w-full h-auto object-contain drop-shadow-2xl floating-img rounded-2xl transform transition-transform hover:scale-105 duration-500">
+                                </div>
+                            </div>
+
+
+                            <div class="order-2 lg:order-2 space-y-6 text-center lg:text-left">
+                                <div
+                                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-teal-100 shadow-sm">
+                                    <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+                                    <span class="text-xs font-bold tracking-widest text-teal-800 uppercase">Live
+                                        Prediction
+                                        Markets</span>
+                                </div>
+
+                                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-dark leading-tight">
+                                    Predict the <span
+                                        class="bg-clip-text text-transparent bg-btn-gradient text-glow">Future</span>
+                                </h2>
+
+                                <p class="text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                                    Stop watching from the sidelines. Be part of the action. Leverage your insights to
+                                    forecast real
+                                    world events.
+                                    Will BTC hit 100k? Is the next big drop coming?
+                                    <span class="font-semibold text-brand-dark">Vote Yes or No and earn rewards.</span>
+                                </p>
+
+                                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                                    <button
+                                        class="px-8 py-4 rounded-full bg-brand-dark text-white font-semibold text-lg hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                                        Start Predicting
+                                    </button>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <button class="slider-nav prev" id="sliderPrev">&#10094;</button>
+        <button class="slider-nav next" id="sliderNext">&#10095;</button>
+
+        <div class="slider-dots">
+            <div class="dot active" data-index="0"></div>
+            <div class="dot" data-index="1"></div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-container">
+            <div class="section-badge">
+                <span>EVERYDAY</span>
+            </div>
+            <h2 class="section-title">
+                Know it all with <span class="text-gradient">Popn</span>
+            </h2>
+            <p class="section-subtitle">
+                Popn keeps you ahead of the curve with real-time Web3 intelligence, helping you make calculated moves,
+                not random guesses.
+            </p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-chart chart-1"></div>
+                    <div class="feature-content">
+                        <h3>Onchain Analytics</h3>
+                        <p>Trace smart wallets, track tokens, decode DeFi</p>
+                    </div>
+                </div>
+
+                <div class="feature-card feature-card-large">
+                    <div class="feature-chart chart-2"></div>
+                    <div class="feature-content">
+                        <h3>Crypto Mindshare</h3>
+                        <p>See what crypto Twitter is thinking and what's trending on socials</p>
+                    </div>
+                </div>
+
+                <div class="feature-card feature-card-large">
+                    <div class="feature-chart chart-3"></div>
+                    <div class="feature-content">
+                        <h3>Project Insights</h3>
+                        <p>Get deep reads on trending protocols</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-chart chart-4"></div>
+                    <div class="feature-content">
+                        <h3>Web3 News</h3>
+                        <p>Stay updated without the noise</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web3 Stats Section -->
+    <section class="web3-stats-section">
+        <div class="web3-stats-container">
+            <div class="section-badge">
+                <span>EVERYDAY</span>
+            </div>
+            <h2 class="section-title">
+                Stay ahead of <span class="text-gradient">web3</span>
+            </h2>
+            <div class="web3-stats-visual">
+                <div class="stats-visual-bg"></div>
+                <div class="stats-grid">
+                    <div class="stat-item stat-large">
+                        <img src="public/web3-div1.png" alt="Web3 Statistics" class="stat-image" />
+                    </div>
+                    <div class="stat-item stat-wide">
+                        <img src="public/web3-div2.png" alt="Web3 Data Visualization" class="stat-image" />
+                    </div>
+                    <div class="stat-item">
+                        <img src="public/web3-div3.png" alt="Web3 Analytics" class="stat-image" />
+                    </div>
+                    <div class="stat-item">
+                        <img src="public/web3-div4.png" alt="Web3 Metrics" class="stat-image" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-bg">
+            <div class="about-gradient"></div>
+            <div class="about-blur-circle"></div>
+        </div>
+        <div class="about-container">
+            <div class="section-badge">
+                <span>ABOUT</span>
+            </div>
+            <h2 class="section-title about-description">
+                <span class="popn-highlight">Popn</span> is designed to simplify how people explore Web3 by bringing
+                token data, project insights, and onchain signals into one clean interface. With a focus on clarity and
+                context, it helps users act faster and stay ahead in crypto.
+            </h2>
+        </div>
+    </section>
+
+    <!-- KIA Agent Section -->
+    <section class="kia-section">
+        <div class="kia-container">
+            <h2 class="section-title">
+                Create Your Own<br>
+                <span class="text-gradient">KIA Agent</span> with Popn
+            </h2>
+            <p class="section-subtitle">
+                Popn helps you build a Know It All (KIA) agent - your project's intelligent AI trained on everything
+                from token data to tweets. KIA becomes your always-on expert, helping users understand your project
+                instantly
+            </p>
+
+            <div class="kia-features">
+                <div class="kia-column">
+                    <div class="kia-feature">
+                        <div class="feature-icon">
+                            <img src="public/kia-icon-1.png" alt="Always-On Support" class="kia-icon-img">
+                        </div>
+                        <h4>Always-On Support</h4>
+                        <p>Answers user questions 24/7, instantly and accurately.</p>
+                    </div>
+                    <div class="kia-feature">
+                        <div class="feature-icon">
+                            <img src="public/kia-icon-2.png" alt="Project-Trained Intelligence" class="kia-icon-img">
+                        </div>
+                        <h4>Project-Trained Intelligence</h4>
+                        <p>Built on your docs, tweets, roadmap, and token data.</p>
+                    </div>
+                    <div class="kia-feature">
+                        <div class="feature-icon">
+                            <img src="public/kia-icon-3.png" alt="Boosted Engagement" class="kia-icon-img">
+                        </div>
+                        <h4>Boosted Engagement</h4>
+                        <p>Keep your community informed and involved with zero friction.</p>
+                    </div>
+                </div>
+
+                <div class="kia-visual">
+                    <div class="kia-robot">
+                        <div class="robot-bg"></div>
+                        <div class="robot-glow"></div>
+                    </div>
+                </div>
+
+                <div class="kia-column">
+                    <div class="kia-feature">
+                        <div class="feature-icon">
+                            <img src="public/kia-icon-4.png" alt="Data Ownership & Privacy" class="kia-icon-img">
+                        </div>
+                        <h4>Data Ownership & Privacy</h4>
+                        <p>All knowledge stays on-brand, trained and hosted for you</p>
+                    </div>
+                    <div class="kia-feature">
+                        <div class="feature-icon">
+                            <img src="public/kia-icon-5.png" alt="Faster Onboarding" class="kia-icon-img">
+                        </div>
+                        <h4>Faster Onboarding</h4>
+                        <p>Onboard users quickly without needing to "read all."</p>
+                    </div>
+                    <div class="kia-feature">
+                        <div class="feature-icon">
+                            <img src="public/kia-icon-6.png" alt="Real-Time Updates" class="kia-icon-img">
+                        </div>
+                        <h4>Real-Time Updates</h4>
+                        <p>KIA evolves as your project grows, syncing with live Web3 data.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA & Footer Section -->
+    <footer class="footer">
+        <div class="footer-bg">
+            <div class="cta-gradient"></div>
+            <div class="cta-blur-effects"></div>
+        </div>
+        <div class="footer-container">
+            <!-- CTA Content -->
+            <div class="cta-content">
+                <h2><span class="text-gradient">Created by Popn.</span> Powered by OpenLedger. Tailored for You.</h2>
+                <p>Contact us today and let your project speak for itself.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary">Chat Now</button>
+                    <button class="btn btn-secondary">Know More</button>
+                </div>
+            </div>
+
+            <!-- Dotted Separator -->
+            <div class="footer-separator"></div>
+
+            <!-- Footer Content -->
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-logo-text">Popn</div>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">📧</a>
+                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon">💬</a>
+                        <a href="#" class="social-icon">📱</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Use Link</h4>
+                        <a href="#features">Feature</a>
+                        <a href="#about">About</a>
+                        <a href="#testimonials">Testimonial</a>
+                        <a href="#pricing">Pricing</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#blog">Blog</a>
+                        <a href="#404">404</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Company</h4>
+                        <p>105 North 1st Street, #28,<br>San Jose, CA 94748</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Design & Developed by <strong>OpenLedger</strong></p>
+                <a href="#privacy">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
