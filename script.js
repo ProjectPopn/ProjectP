@@ -385,15 +385,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    sliderPrev?.addEventListener('click', () => {
-        moveSlider(currentSlide - 1);
-        resetAutoSlider();
-    });
 
-    sliderNext?.addEventListener('click', () => {
-        moveSlider(currentSlide + 1);
-        resetAutoSlider();
-    });
 
     dots.forEach((dot, i) => {
         dot.addEventListener('click', () => {
