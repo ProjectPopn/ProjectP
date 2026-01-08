@@ -45,12 +45,10 @@
             </div>
             <div class="nav-links">
                 <a href="#features">Features</a>
-                <a href="#testimonials">Testimonial</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#faq">FAQ</a>
                 <a href="#about">About</a>
+                <a href="http://alphacall.popn.io/" target="_blank">AlphaCall</a>
             </div>
-            <button class="nav-contact-btn">Contact</button>
+
             <button class="mobile-menu-btn">☰</button>
         </div>
     </nav>
@@ -137,8 +135,10 @@
         }
 
         .slider-nav:hover {
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.8);
             transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 0 20px rgba(45, 212, 191, 0.4);
+            color: #2dd4bf;
         }
 
         .slider-nav.prev {
@@ -230,8 +230,7 @@
                             Built on top of <em>OpenLedger</em>, Popn is your ultimate gateway to Web3 insights.
                         </p>
                         <div class="hero-buttons">
-                            <button class="btn btn-primary">Chat Now</button>
-                            <button class="btn btn-secondary">Know More</button>
+                            <a href="#features" class="btn btn-secondary">Know More</a>
                         </div>
                     </div>
 
@@ -274,11 +273,10 @@
 
                             <div class="order-2 lg:order-2 space-y-6 text-center lg:text-left">
                                 <div
-                                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-teal-100 shadow-sm">
+                                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-50 border border-teal-100/50 shadow-sm mb-2">
                                     <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
-                                    <span class="text-xs font-bold tracking-widest text-teal-800 uppercase">Live
-                                        Prediction
-                                        Markets</span>
+                                    <span class="text-[10px] font-bold tracking-[0.2em] text-teal-700 uppercase">Live
+                                        Prediction Markets</span>
                                 </div>
 
                                 <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-dark leading-tight">
@@ -286,19 +284,18 @@
                                         class="bg-clip-text text-transparent bg-btn-gradient text-glow">Future</span>
                                 </h2>
 
-                                <p class="text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                                <p class="text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed opacity-90">
                                     Stop watching from the sidelines. Be part of the action. Leverage your insights to
-                                    forecast real
-                                    world events.
-                                    Will BTC hit 100k? Is the next big drop coming?
-                                    <span class="font-semibold text-brand-dark">Vote Yes or No and earn rewards.</span>
+                                    forecast real world events. <span
+                                        class="block mt-2 text-brand-dark font-medium">Will BTC hit 100k? Vote Yes or No
+                                        and earn rewards.</span>
                                 </p>
 
                                 <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-                                    <button
-                                        class="px-8 py-4 rounded-full bg-brand-dark text-white font-semibold text-lg hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                                    <a href="http://alphacall.popn.io/"
+                                        class="px-10 py-4 rounded-full bg-btn-gradient text-white font-semibold text-lg hover:shadow-[0_10px_20px_-10px_rgba(45,212,191,0.5)] transition-all transform hover:-translate-y-1 active:scale-95 inline-block text-center no-underline shadow-lg">
                                         Start Predicting
-                                    </button>
+                                    </a>
 
                                 </div>
                             </div>
@@ -309,8 +306,7 @@
             </div>
         </div>
 
-        <button class="slider-nav prev" id="sliderPrev">&#10094;</button>
-        <button class="slider-nav next" id="sliderNext">&#10095;</button>
+
 
         <div class="slider-dots">
             <div class="dot active" data-index="0"></div>
@@ -498,10 +494,7 @@
             <div class="cta-content">
                 <h2><span class="text-gradient">Created by Popn.</span> Powered by OpenLedger. Tailored for You.</h2>
                 <p>Contact us today and let your project speak for itself.</p>
-                <div class="cta-buttons">
-                    <button class="btn btn-primary">Chat Now</button>
-                    <button class="btn btn-secondary">Know More</button>
-                </div>
+
             </div>
 
             <!-- Dotted Separator -->
@@ -512,23 +505,18 @@
                 <div class="footer-logo">
                     <div class="footer-logo-text">Popn</div>
                     <div class="social-icons">
-                        <a href="#" class="social-icon">📧</a>
-                        <a href="#" class="social-icon">🐦</a>
-                        <a href="#" class="social-icon">💬</a>
-                        <a href="#" class="social-icon">📱</a>
+                        <a href="https://x.com/ProjectPopn" class="social-icon" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="w-5 h-5 fill-current">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                                </path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
                 <div class="footer-links">
-                    <div class="footer-section">
-                        <h4>Use Link</h4>
-                        <a href="#features">Feature</a>
-                        <a href="#about">About</a>
-                        <a href="#testimonials">Testimonial</a>
-                        <a href="#pricing">Pricing</a>
-                        <a href="#contact">Contact</a>
-                        <a href="#blog">Blog</a>
-                        <a href="#404">404</a>
-                    </div>
+
                     <div class="footer-section">
                         <h4>Company</h4>
                         <p>105 North 1st Street, #28,<br>San Jose, CA 94748</p>
@@ -536,8 +524,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Design & Developed by <strong>OpenLedger</strong></p>
-                <a href="#privacy">Privacy Policy</a>
+                <p>&copy; 2026 Popn. All rights reserved.</p>
             </div>
         </div>
     </footer>
